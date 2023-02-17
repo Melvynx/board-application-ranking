@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Board {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+
+  proposition Proposition[]
+}
+
+model Proposition {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  ip        String
+
+  board   Board  @relation(fields: [boardId], references: [id])
+  boardId Int
+  vote    Vote[]
+
+  @@unique([boardId, title])
+}
+
+model Vote {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  ip        String
+
+  proposition   Proposition @relation(fields: [propositionId], references: [id])
+  propositionId Int
+
+  @@unique([propositionId, ip])
+}
