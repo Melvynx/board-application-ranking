@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@next/font': 13.1.6
   '@prisma/client': ^4.10.1
+  '@tw-classed/react': ^1.4.2
   '@types/node': 18.13.0
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
@@ -14,12 +15,16 @@ specifiers:
   prisma: ^4.10.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-hot-toast: ^2.4.0
+  react-icons: ^4.7.1
   tailwindcss: ^3.2.7
   typescript: 4.9.5
+  zod: ^3.20.6
 
 dependencies:
   '@next/font': 13.1.6
   '@prisma/client': 4.10.1_prisma@4.10.1
+  '@tw-classed/react': 1.4.2_react@18.2.0
   '@types/node': 18.13.0
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
@@ -28,7 +33,10 @@ dependencies:
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hot-toast: 2.4.0_biqbaboplfbrettd7655fr4n2y
+  react-icons: 4.7.1_react@18.2.0
   typescript: 4.9.5
+  zod: 3.20.6
 
 devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -273,6 +281,19 @@ packages:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
     dependencies:
       tslib: 2.5.0
+    dev: false
+
+  /@tw-classed/core/1.4.0:
+    resolution: {integrity: sha512-0D4+EREaHEZ5wfxoWNwe5tzpaUbac6xHYiuJGVgwuhCPzWP4H0IwxhW/3bU/SzvLZcwJsuQjZx72lxDnJUn1rw==}
+    dev: false
+
+  /@tw-classed/react/1.4.2_react@18.2.0:
+    resolution: {integrity: sha512-xzeY/lXvn4diIyt5S7jn7jcUnSqgHo3Gtcmy+iyaXLEY0c9/9r5+VJunZKmcaldDwX0DEFFOSc2xUY62MWaeQw==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      '@tw-classed/core': 1.4.0
+      react: 18.2.0
     dev: false
 
   /@types/json5/0.0.29:
@@ -1333,6 +1354,12 @@ packages:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
     dev: false
 
+  /goober/2.1.12:
+    resolution: {integrity: sha512-yXHAvO08FU1JgTXX6Zn6sYCUFfB/OJSX8HHjDSgerZHZmFKAb08cykp5LBw5QnmyMcZyPRMqkdyHUSSzge788Q==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dev: false
+
   /gopd/1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
@@ -2051,6 +2078,28 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-hot-toast/2.4.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-qnnVbXropKuwUpriVVosgo8QrB+IaPJCpL8oBI6Ov84uvHZ5QQcTp2qg6ku2wNfgJl6rlQXJIQU5q+5lmPOutA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      goober: 2.1.12
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - csstype
+    dev: false
+
+  /react-icons/4.7.1_react@18.2.0:
+    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -2485,4 +2534,8 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: false
+
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
     dev: false

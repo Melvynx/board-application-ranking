@@ -1,4 +1,5 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import { IoIosArrowUp } from 'react-icons/io';
@@ -12,16 +13,21 @@ const onError = () => toast.error('You can only vote once');
 
 export const UpVote = ({ voteCount, propositionId }: UpVoteProps) => {
   const router = useRouter();
+
   const handleClick = () => {
-    fetch(`/api/proposition/${propositionId}/vote`, {
+    fetch(`/api/propositions/${propositionId}/votes`, {
       method: 'POST',
-    }).then((res) => {
-      if (res.status === 201) {
-        router.refresh();
-        return;
-      }
-      onError();
-    });
+    })
+      .then((res) => {
+        if (res.status === 201) {
+          router.refresh();
+          return;
+        }
+        onError();
+      })
+      .catch(() => {
+        onError();
+      });
   };
 
   return (
